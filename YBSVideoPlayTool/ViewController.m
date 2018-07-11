@@ -91,6 +91,8 @@
     
     
     
+    
+    
     // 自动播放，默认不自动播放
 //    [self.player autoPlayTheVideo];
 }
