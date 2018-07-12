@@ -9,20 +9,14 @@
 #import "YBSPlayerControlViewDelegate.h"
 
 
-
-
-
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIView+CustomControlView.h"
 #import "YBSBrightnessView.h"
 
+
+
 #define CellPlayerFatherViewTag  200
-
-//忽略编译器的警告
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-
 
 @class YBSPlayerControlView;
 // 枚举值，包含水平移动方向和垂直移动方向
@@ -47,12 +41,6 @@ typedef NS_ENUM(NSInteger, YBSPlayerState) {
     YBSPlayerStateStopped,    // 停止播放
     YBSPlayerStatePause       // 暂停播放
 };
-
-
-
-
-
-
 
 @protocol YBSPlayerDelegate <NSObject>
 @optional
@@ -81,27 +69,19 @@ typedef NS_ENUM(NSInteger, YBSPlayerState) {
 @interface YBSPlayerView : UIView <YBSPlayerControlViewDelagate>
 
 /** 设置playerLayer的填充模式 */
-@property (nonatomic, assign) YBSPlayerLayerGravity    playerLayerGravity;
-/** 是否有下载功能(默认是关闭) */
-@property (nonatomic, assign) BOOL                    hasDownload;
+@property (nonatomic, assign) YBSPlayerLayerGravity playerLayerGravity;
 /** 是否开启预览图 */
-@property (nonatomic, assign) BOOL                    hasPreviewView;
+@property (nonatomic, assign) BOOL hasPreviewView;
 /** 设置代理 */
-@property (nonatomic, weak) id<YBSPlayerDelegate>      delegate;
+@property (nonatomic, weak) id<YBSPlayerDelegate > delegate;
 /** 是否被用户暂停 */
-@property (nonatomic, assign) BOOL          isPauseByUser;
+@property (nonatomic, assign) BOOL isPauseByUser;
 /** 播发器的几种状态 */
 @property (nonatomic, assign) YBSPlayerState state;
 /** 静音（默认为NO）*/
-@property (nonatomic, assign) BOOL                    mute;
-/** 当cell划出屏幕的时候停止播放（默认为NO） */
-@property (nonatomic, assign) BOOL                    stopPlayWhileCellNotVisable;
-/** 当cell播放视频由全屏变为小屏时候，是否回到中间位置(默认YES) */
-@property (nonatomic, assign) BOOL                    cellPlayerOnCenter;
+@property (nonatomic, assign) BOOL mute;
 /** player在栈上，即此时push或者模态了新控制器 */
-@property (nonatomic, assign) BOOL                    playerPushedOrPresented;
-
-
+@property (nonatomic, assign) BOOL playerPushedOrPresented;
 
 
 
@@ -120,14 +100,12 @@ typedef NS_ENUM(NSInteger, YBSPlayerState) {
 @property (nonatomic, assign) CGFloat                sumTime;
 /** 定义一个实例变量，保存枚举值 */
 @property (nonatomic, assign) PanDirection           panDirection;
-
 /** 是否为全屏 */
 @property (nonatomic, assign) BOOL                   isFullScreen;
 /** 是否锁定屏幕方向 */
 @property (nonatomic, assign) BOOL                   isLocked;
 /** 是否在调节音量*/
 @property (nonatomic, assign) BOOL                   isVolume;
-
 /** 是否播放本地文件 */
 @property (nonatomic, assign) BOOL                   isLocalVideo;
 /** slider上次的值 */
@@ -144,8 +122,6 @@ typedef NS_ENUM(NSInteger, YBSPlayerState) {
 @property (nonatomic, strong) UITapGestureRecognizer *singleTap;
 /** 双击 */
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
-/** 视频URL的数组 */
-@property (nonatomic, strong) NSArray                *videoURLArray;
 /** slider预览图 */
 @property (nonatomic, strong) UIImage                *thumbImg;
 /** 亮度view */
@@ -153,20 +129,16 @@ typedef NS_ENUM(NSInteger, YBSPlayerState) {
 /** 视频填充模式 */
 @property (nonatomic, copy) NSString                 *videoGravity;
 
-#pragma mark - UITableViewCell PlayerView
 
 /** 是否正在拖拽 */
-@property (nonatomic, assign) BOOL                   isDragged;
+@property (nonatomic, assign) BOOL isDragged;
 /** 小窗口距屏幕右边和下边的距离 */
-@property (nonatomic, assign) CGPoint                shrinkRightBottomPoint;
-
+@property (nonatomic, assign) CGPoint shrinkRightBottomPoint;
 @property (nonatomic, strong) UIPanGestureRecognizer *shrinkPanGesture;
-
 @property (nonatomic, strong) YBSPlayerControlView    *ybs_controlView;
 @property (nonatomic, strong) YBSPlayerModel          *playerModel;
 @property (nonatomic, assign) NSInteger              seekTime;
 @property (nonatomic, strong) NSURL                  *videoURL;
-@property (nonatomic, strong) NSDictionary           *resolutionDic;
 
 
 

@@ -18,7 +18,6 @@
  */
 - (instancetype)init {
     if (self =  [super init]) {
-        self.cellPlayerOnCenter = YES;
     }
     return self;
 }
@@ -804,18 +803,6 @@
     }
 }
 
-/**
- *  是否有下载功能
- */
-- (void)setHasDownload:(BOOL)hasDownload {
-    _hasDownload = hasDownload;
-    [self.ybs_controlView ybs_playerHasDownloadFunction:hasDownload];
-}
-
-- (void)setResolutionDic:(NSDictionary *)resolutionDic {
-    _resolutionDic = resolutionDic;
-    self.videoURLArray = [resolutionDic allValues];
-}
 
 - (void)setYbs_controlView:(YBSPlayerControlView *)ybs_controlView{
     
@@ -856,14 +843,6 @@
     }];
 }
 
-- (void)setPlayerPushedOrPresented:(BOOL)playerPushedOrPresented {
-    _playerPushedOrPresented = playerPushedOrPresented;
-    if (playerPushedOrPresented) {
-        [self pause];
-    } else {
-        [self play];
-    }
-}
 #pragma mark - Getter
 
 - (AVAssetImageGenerator *)imageGenerator {

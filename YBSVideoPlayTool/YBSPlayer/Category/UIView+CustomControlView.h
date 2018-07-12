@@ -47,11 +47,6 @@
 - (void)ybs_playerPlayEnd;
 
 /** 
- * 是否有下载功能
- */
-- (void)ybs_playerHasDownloadFunction:(BOOL)sender;
-
-/** 
  * 播放按钮状态 (播放、暂停状态)
  */
 - (void)ybs_playerPlayBtnState:(BOOL)state;

@@ -3,6 +3,13 @@
 //
 
 
+
+//忽略编译器的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic pop
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+
+
 // 监听TableView的contentOffset
 #define kYBSPlayerViewContentOffset          @"contentOffset"
 // player的单例

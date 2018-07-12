@@ -51,10 +51,6 @@
  */
 - (void)ybs_playerPlayEnd {}
 
-/**
- * 是否有下载功能
- */
-- (void)ybs_playerHasDownloadFunction:(BOOL)sender {}
 
 /**
  * 下载按钮状态

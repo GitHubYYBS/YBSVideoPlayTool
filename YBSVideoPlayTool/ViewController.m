@@ -8,12 +8,9 @@
 
 #import "ViewController.h"
 
-
 #import "YBSPlayerView.h"
 #import "YBSPlayerControlView.h"
 #import "YBSPlayerModel.h"
-
-
 
 #import "UIView+Frame.h"
 
@@ -48,25 +45,6 @@
 @implementation ViewController
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (self.player && self.isPlaying) {
-        self.isPlaying = NO;
-        self.player.playerPushedOrPresented = NO;
-    }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    if (self.player && !self.player.isPauseByUser){
-        self.isPlaying = YES;
-        self.player.playerPushedOrPresented = YES;
-    }
-    
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -94,7 +72,7 @@
     
     
     // 自动播放，默认不自动播放
-//    [self.player autoPlayTheVideo];
+    [self.player autoPlayTheVideo];
 }
 
 #pragma mark - YBSPlayerDelegate
